@@ -8,7 +8,7 @@ const app = express()
 // Use CORS to allow access from other domains if needed
 app.use(cors())
 
-app.get('/api/qr', async (req, res) => {
+app.get('/qr', async (req, res) => {
   const data = req.query.v
 
   if (!data) {
