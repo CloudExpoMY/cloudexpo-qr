@@ -2,9 +2,9 @@
 functions = "netlify/functions"
 command = "echo Building Functions"
 
-# [functions]
-# external_node_modules = ["qrcode"]
-# node_bundler = "esbuild"
+[functions]
+external_node_modules = ["qrcode"]
+node_bundler = "esbuild"
 
 [[redirects]]
 from = "/*"
