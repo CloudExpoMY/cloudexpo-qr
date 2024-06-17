@@ -18,7 +18,7 @@ const handler = async (event, context) => {
     const qrCodeDataURL = await QRCode.toDataURL(data, options)
     const imgBuffer = Buffer.from(qrCodeDataURL.split(',')[1], 'base64')
 
-    console.log(`QR code generated - ${data}`)
+    console.info(`QR code generated - ${data}`)
     return {
       statusCode: 200,
       headers: {
