@@ -1,7 +1,7 @@
 const QRCode = require('qrcode')
 
 const handler = async (event, context) => {
-  const { rawQuery } = event
+  const { path, rawQuery } = event
 
   // Handle favicon.ico request
   if (path === '/favicon.ico') {
