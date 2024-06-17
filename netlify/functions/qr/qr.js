@@ -24,6 +24,7 @@ const handler = async (event, context) => {
       headers: {
         'Content-Type': 'image/png',
         'Content-Disposition': 'inline; filename="CloudExpo-QR.png"',
+        'Cache-Control': 'public, max-age=31536000', // Cache for 1 year
       },
       body: imgBuffer.toString('base64'),
       isBase64Encoded: true,
