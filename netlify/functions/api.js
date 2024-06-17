@@ -1,13 +1,18 @@
 const express = require('express')
 const serverless = require('serverless-http')
 const QRCode = require('qrcode')
+const cors = require('cors')
 
 const app = express()
+
+// Use CORS to allow access from other domains if needed
+app.use(cors())
 
 app.get('/api/qr', async (req, res) => {
   const data = req.query.v
 
   if (!data) {
+    console.log('No data provided')
     return res.status(400).send('No data provided')
   }
 

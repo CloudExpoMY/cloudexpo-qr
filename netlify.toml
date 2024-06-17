@@ -1,13 +1,13 @@
 [build]
-functions = "netlify/functions"
-command = "echo Building Functions"
+  functions = "netlify/functions"
+  command = "echo Building Functions"
 
 [functions]
-external_node_modules = ["express", "qrcode"]
-node_bundler = "esbuild"
+  external_node_modules = ["express", "qrcode", "cors"]
+  node_bundler = "esbuild"
 
 [[redirects]]
-from = "/api/*"
-to = "/.netlify/functions/api/:splat"
-status = 200
-force = true
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
