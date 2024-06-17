@@ -14,7 +14,9 @@ const handler = async (event, context) => {
     }
   }
 
-  const data = rawQuery.split('=')[1]
+  const params = new URLSearchParams(rawQuery)
+  const data = params.get('v')
+  const size = params.get('size') ? parseInt(params.get('size')) : 300 // Default to 300 if no size is provided
 
   if (!data) {
     return { statusCode: 400, body: 'No data provided' }
@@ -23,8 +25,8 @@ const handler = async (event, context) => {
   try {
     const options = {
       margin: 2,
-      width: 300,
-      height: 300,
+      width: size,
+      height: size,
     }
 
     const qrCodeDataURL = await QRCode.toDataURL(data, options)
