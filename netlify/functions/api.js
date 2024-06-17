@@ -4,7 +4,7 @@ const QRCode = require('qrcode')
 
 const app = express()
 
-app.get('/.netlify/functions/generate-qr', async (req, res) => {
+app.get('/api/qr', async (req, res) => {
   const data = req.query.v
 
   if (!data) {
