@@ -2,6 +2,18 @@ const QRCode = require('qrcode')
 
 const handler = async (event, context) => {
   const { rawQuery } = event
+
+  // Handle favicon.ico request
+  if (path === '/favicon.ico') {
+    return {
+      statusCode: 204,
+      headers: {
+        'Content-Type': 'image/x-icon',
+      },
+      body: null,
+    }
+  }
+
   const data = rawQuery.split('=')[1]
 
   if (!data) {
