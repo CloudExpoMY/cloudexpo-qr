@@ -18,9 +18,11 @@ app.get('/api/qr', async (req, res) => {
       height: 300,
     }
 
+    console.log('Generating QR code...')
     const qrCodeDataURL = await QRCode.toDataURL(data, options)
     const imgBuffer = Buffer.from(qrCodeDataURL.split(',')[1], 'base64')
 
+    console.log('QR code generated, sending response...')
     res.writeHead(200, {
       'Content-Type': 'image/png',
       'Content-Length': imgBuffer.length,
@@ -28,6 +30,7 @@ app.get('/api/qr', async (req, res) => {
     })
     res.end(imgBuffer)
   } catch (err) {
+    console.error('Error generating QR code:', err)
     res.status(500).send('Error generating QR code')
   }
 })
